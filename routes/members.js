@@ -12,55 +12,49 @@ var message_controller = require('../controllers/messageController');
 // GET home page.
 router.get('/', user_controller.index);
 
-// GET request for signing up. NOTE This must come before routes that display product (uses id).
+// GET request for signing up user. NOTE This must come before routes that display product (uses id).
 router.get('/sign-up', user_controller.user_create_get);
 
-// // POST request for creating product.
-// router.post('/products/create', product_controller.product_create_post);
+// // POST request for creating user.
+router.post('/sign-up', user_controller.user_create_post);
 
-// // GET request to delete product.
-// router.get('/products/:id/delete', product_controller.product_delete_get);
+// // GET request for log in.
+router.get('/login', user_controller.user_login_get);
 
-// // POST request to delete product.
+// // POST request to delete user.
 // router.post('/products/:id/delete', product_controller.product_delete_post);
 
-// // GET request to update product.
-// router.get('/products/:id/update', product_controller.product_update_get);
+// GET request for admin log in.
+ router.get('/admin-login', user_controller.user_admin_login_get);
 
-// // POST request to update product.
+// // POST request to update user.
 // router.post('/products/:id/update', product_controller.product_update_post);
 
-// // GET request for one product.
+// // GET request for one user.
 // router.get('/products/:id', product_controller.product_detail);
 
-// // GET request for list of all product items.
+// // GET request for list of all users.
 // router.get('/products', product_controller.product_list);
 
 
-// /// Category ROUTES ///
+// Message ROUTES 
 
-// // GET request for creating a category. NOTE This must come before route that displays category (uses id).
+// GET request for creating a Message. NOTE This must come before route that displays message (uses id).
 // router.get('/categories/create', category_controller.category_create_get);
 
-// //POST request for creating category.
+// //POST request for creating message.
 // router.post('/categories/create', category_controller.category_create_post);
 
-// // GET request to delete category.
+// // GET request to delete message.
 // router.get('/categories/:id/delete', category_controller.category_delete_get);
 
-// // POST request to delete category.
+// // POST request to delete message.
 // router.post('/categories/:id/delete', category_controller.category_delete_post);
 
-// // GET request to update category.
-// router.get('/categories/:id/update', category_controller.category_update_get);
-
-// // POST request to update category.
-// router.post('/categories/:id/update', category_controller.category_update_post);
-
-// // GET request for one category.
+// // GET request for one message.
 // router.get('/categories/:id', category_controller.category_detail);
 
-// // GET request for list of all category.
+// // GET request for list of all messages.
 // router.get('/categories', category_controller.category_list);
 
 
