@@ -1,7 +1,7 @@
 <h1 class="text-center mb-3">{{title}}</h1>
 <p class="text-center mb-3">Welcome to {{title}}</p>
-<p>There are currently {{this.data.userCount}} users.</p>
-<p>There are currently {{this.data.messageCount}} messages.</p>
+<p>There are currently {{this.data.user_count}} users.</p>
+<p>There are currently {{this.data.message_count}} messages.</p>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2">
@@ -14,3 +14,14 @@
         </div>
     </div>
 </div>
+
+{{#each message}}
+<div class="card" style="width: 18rem;">
+  <img src="" class="card-img-top" alt="">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+{{/each}}

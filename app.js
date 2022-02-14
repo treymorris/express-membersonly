@@ -4,11 +4,63 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require("dotenv").config();
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const bcrypt = require("bcryptjs");
+var User = require('./models/user');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var membersRouter = require('./routes/members');  //Import routes for "members" area of site
 
 var app = express();
+
+passport.use(
+  new LocalStrategy((username, password, done) => {
+    User.findOne({ username: username }, (err, user) => {
+        if (err) { 
+          console.log('error')
+        return done(err);
+      }
+        if (!user) {
+          console.log('no user found')
+        return done(null, false, { message: "Incorrect username" });
+      }
+      bcrypt.compare(password, user.password, (err, res) => {
+          if (res) {
+            // passwords match! log user in
+            return done(null, user)
+          } else {
+            // passwords do not match!
+            return done(null, false, { message: "Incorrect password" })
+          }
+        })
+    });
+  })
+);
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
+app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.urlencoded({ extended: false }));
+app.use(function(req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+
+
+
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
@@ -44,5 +96,12 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
+
+
+
+
 
 module.exports = app;

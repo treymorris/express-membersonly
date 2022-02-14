@@ -22,7 +22,10 @@ router.post('/sign-up', user_controller.user_create_post);
 router.get('/login', user_controller.user_login_get);
 
 // // POST request to delete user.
-// router.post('/products/:id/delete', product_controller.product_delete_post);
+router.post('/login', user_controller.user_login_post);
+
+// Get request for Log Out
+router.get('/logout', user_controller.logout);
 
 // GET request for admin log in.
  router.get('/admin-login', user_controller.user_admin_login_get);
@@ -31,7 +34,7 @@ router.get('/login', user_controller.user_login_get);
 // router.post('/products/:id/update', product_controller.product_update_post);
 
 // // GET request for one user.
-// router.get('/products/:id', product_controller.product_detail);
+router.get('/members-pass', user_controller.user_member_get);
 
 // // GET request for list of all users.
 // router.get('/products', product_controller.product_list);

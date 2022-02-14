@@ -6,19 +6,22 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
 
-exports.index = function(req, res) {
 
-    // async.parallel({
-    //     user_count: function(callback) {
-    //         User.countDocuments({}, callback); // Pass an empty object as match condition to find all documents of this collection
-    //     },
-    //     message_count: function(callback) {
-    //         Message.countDocuments({}, callback);
-    //     }
-       
-        res.render('index', { title: 'Members Only',  });
-    
+
+exports.index = function (req, res) {
+
+        async.parallel({
+                user_count: function (callback) {
+                        User.countDocuments({}, callback); // Pass an empty object as match condition to find all documents of this collection
+                },
+                message_count: function (callback) {
+                        Message.countDocuments({}, callback);
+                }
+        }, function (err, results) {
+                res.render('index', { title: 'Members Only', error: err, data: results });
+        });
 };
+
 
 // Display User sign-up form on GET.
 exports.user_create_get = function(req, res, next) {
@@ -74,7 +77,40 @@ exports.user_create_post = [
 
 // Display Log-In page
 exports.user_login_get = function (req, res, next) {
-        res.render('login-form', { title: 'Log In' });
+
+
+
+                res.render('login-form', { title: 'Log In', user: req.user });
+
+        };
+
+
+// Handle Log In on POST
+exports.user_login_post = [
+
+        // Validate and sanitize
+        body('username', 'Enter a User Name!').trim().isLength({ min: 1 }).escape(),
+        body('password', 'Enter a password!').trim().isLength({ min: 5 }).escape(),
+
+        (req, res, next) => {
+                const errors = validationResult(req);
+                if (!errors.isEmpty()) {
+                        res.render('login-form', {
+                                username: req.body.username,
+                                errors: errors.array(),
+                        });
+                };
+                next();
+        },
+        passport.authenticate("local", {
+                successRedirect: "/members/members-pass",
+                failureRedirect: "/"
+        }),
+];
+
+// Display Members Sign In
+exports.user_member_get = function (req, res, next) {
+        res.render('members-pass', { title: 'Member Pass Code' });
 }
 
 // Display Admin Log-In page
@@ -82,3 +118,9 @@ exports.user_login_get = function (req, res, next) {
 exports.user_admin_login_get = function (req, res, next) {
         res.render('admin-login-form', { title: 'Admin Log In' });
 }
+
+// Log Out Request
+exports.logout = (req, res) => {
+        req.logout();
+        res.redirect('/');
+      };

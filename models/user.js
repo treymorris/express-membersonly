@@ -8,7 +8,9 @@ var UserSchema = new Schema(
         lastname: { type: String, required: true },
         username: { type: String, required: true },
         password: { type: String, minlength: 5 },
-        messages: { type: Schema.Types.ObjectId, ref: 'Message' }
+        messages: { type: Schema.Types.ObjectId, ref: 'Message' },
+        admin: { type: Boolean, default: false },
+        membership: { type: Boolean, required: true}
     }
 );
 
