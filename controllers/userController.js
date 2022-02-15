@@ -75,7 +75,7 @@ exports.user_create_post = [
         }
 ]
 
-// Display Log-In page
+// Display Log-In page GET
 exports.user_login_get = function (req, res, next) {
 
 
@@ -108,10 +108,19 @@ exports.user_login_post = [
         }),
 ];
 
-// Display Members Sign In
+// Display Members Sign In GET
 exports.user_member_get = function (req, res, next) {
+        console.log('test');
         res.render('members-pass', { title: 'Member Pass Code' });
 }
+
+// Handle Member sign in POST
+exports.user_member_post = function (req, res, next) {
+
+        console.log('fuuuuugitut');
+        res.redirect('/members/message-view');
+};    
+
 
 // Display Admin Log-In page
 

@@ -1,0 +1,9 @@
+{
+    "editor.suggestOnTriggerCharacters": false,
+    // Controls if quick suggestions should show up while typing
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+}
+}

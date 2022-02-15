@@ -36,6 +36,8 @@ router.get('/logout', user_controller.logout);
 // // GET request for one user.
 router.get('/members-pass', user_controller.user_member_get);
 
+router.post('/members-pass', user_controller.user_member_post)
+
 // // GET request for list of all users.
 // router.get('/products', product_controller.product_list);
 
@@ -57,8 +59,8 @@ router.get('/members-pass', user_controller.user_member_get);
 // // GET request for one message.
 // router.get('/categories/:id', category_controller.category_detail);
 
-// // GET request for list of all messages.
-// router.get('/categories', category_controller.category_list);
+// GET request for list of all messages.
+router.get('/message-view', message_controller.message_list_get);
 
 
 

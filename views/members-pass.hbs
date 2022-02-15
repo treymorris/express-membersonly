@@ -1,8 +1,18 @@
-<h1>Members Log In!</h1>
-<h4>To see message authors, you must enter the secret code!</h4>
+<h1>Welcome to the Message Board!</h1>
+<h5>To see messages, you must enter the secret code!</h5>
 <form method="POST" action="" >
-  <label for="secretcode">Secret Code</label>
-  <input name="secretcode" placeholder="hint: spaceballs city code" type="text" />
+  <label for="secretcode">Secret Code: </label>
+  <input name="secretcode" placeholder="hint: Spaceballs city code" type="password" />
   <button>Verify</button>
 </form>
+{{!-- {{#each message_list}}
+<div class="card" style="width: 18rem;">
+  <img src="" class="card-img-top" alt="">
+  <div class="card-body">
+    <h5 class="card-title">{{this.title}}</h5>
+    <p class="card-text">{{this. message}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+{{/each}} --}}
 <a href="/">Home</a>
