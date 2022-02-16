@@ -1,18 +1,13 @@
-<h1>Welcome to the Message Board!</h1>
-<h5>To see messages, you must enter the secret code!</h5>
+<h1 class="text-center mb-3">Welcome to the Message Board!</h1>
+<h5 class="text-center mb-3">To see messages, you must enter the secret code!</h5>
 <form method="POST" action="" >
   <label for="secretcode">Secret Code: </label>
-  <input name="secretcode" placeholder="hint: Spaceballs city code" type="password" />
-  <button>Verify</button>
-</form>
-{{!-- {{#each message_list}}
-<div class="card" style="width: 18rem;">
-  <img src="" class="card-img-top" alt="">
-  <div class="card-body">
-    <h5 class="card-title">{{this.title}}</h5>
-    <p class="card-text">{{this. message}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+  <input name="secretcode" placeholder="hint: Spaceballs airlock code" type="password" class="form-control"/>
+  <div class="d-flex justify-content-center mt-3">
+    <button class="btn-primary btn-block">Verify</button>
   </div>
+  
+</form>
+<div class="d-flex justify-content-center mt-3">
+  <a href="/">Home</a>
 </div>
-{{/each}} --}}
-<a href="/">Home</a>

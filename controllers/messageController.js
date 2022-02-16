@@ -18,7 +18,6 @@ exports.message_list = function (req, res, next) {
 
 exports.message_create_get = function (req, res, next) {
 
-            console.log('anything?')
     res.render('message-form', { title: 'Create New Message' });
         };
 

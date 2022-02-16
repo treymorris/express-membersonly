@@ -1,18 +1,14 @@
 <h1 class="text-center mb-3">{{title}}</h1>
-<p class="text-center mb-3">Welcome to {{title}}</p>
-<p>There are currently {{this.data.user_count}} users.</p>
-<p>There are currently {{this.data.message_count}} messages.</p>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2">
-            <ul class="sidebar-nav">
-                <li><a href="/members">Home</a></li>
-                <li><a href="/members/sign-up">Sign Up!</a></li>
-                <li><a href="/members/login">Log In!</a></li>
-                <li><a href="/members/admin-login">Log In as Admin!</a></li>
-            </ul>
-        </div>
-    </div>
+<p class="text-center mb-3">There are currently {{this.data.user_count}} users.</p>
+<p class="text-center mb-3">There are currently {{this.data.message_count}} messages.</p>
+<div class="d-flex justify-content-center">
+    <ul>
+        <li class="mb-2"><a href="/members">Home</a></li>
+        <li class="mb-2"><a href="/members/sign-up">Sign Up!</a></li>
+        <li class="mb-2"><a href="/members/login">Log In!</a></li>
+        <li class="mb-2"><a href="/members/admin-login">Log In as Admin!</a></li>
+        <li><a href="/members/message-view">See Messages!</a></li>
+    </ul>
 </div>
 
 

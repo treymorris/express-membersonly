@@ -1,9 +1,13 @@
-<h1>{{title}}</h1>
+<h1 class="text-center mb-3">{{title}}</h1>
 <form method="POST" action="" >
   <label for="title">Title: </label>
-  <input name="title" type="text" />
+  <input name="title" type="text" class="form-control" />
   <label for="message">Message: </label>
-  <textarea name="message" placeholder="Message..."  /></textarea>
-  <button>Send</button>
+  <textarea name="message" class="form-control" /></textarea>
+  <div class="d-flex justify-content-center mt-3">
+    <button class="btn-primary btn-block">Send</button>
+  </div>
 </form>
-<a href="/">Home</a>
+<div class="d-flex justify-content-center mt-3">
+  <a href="/">Home</a>
+</div>
