@@ -45,10 +45,10 @@ router.post('/members-pass', user_controller.user_member_post)
 // Message ROUTES 
 
 // GET request for creating a Message. NOTE This must come before route that displays message (uses id).
-// router.get('/categories/create', category_controller.category_create_get);
+router.get('/message-form', message_controller.message_create_get);
 
 // //POST request for creating message.
-// router.post('/categories/create', category_controller.category_create_post);
+router.post('/message-form', message_controller.message_create_post);
 
 // // GET request to delete message.
 // router.get('/categories/:id/delete', category_controller.category_delete_get);
@@ -60,7 +60,9 @@ router.post('/members-pass', user_controller.user_member_post)
 // router.get('/categories/:id', category_controller.category_detail);
 
 // GET request for list of all messages.
-router.get('/message-view', message_controller.message_list_get);
+router.get('/message-view', message_controller.message_list);
+
+//router.post('/message-view', message_controller.message_list_post);
 
 
 

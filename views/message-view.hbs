@@ -1,14 +1,17 @@
 <h1>{{title}}</h1>
 
-{{#each message_list}}
-<div class="card" style="width: 18rem;">
+{{#each messages_list}}
+<div class="card" style="width: 36rem;">
   <img src="" class="card-img-top" alt="">
   <div class="card-body">
     <h5 class="card-title">{{this.title}}</h5>
-    <p class="card-text">{{this. message}}</p>
+    <p class="card-text">{{this.message}}</p>
+    <p class="card-text">{{this.user.username}}</p>
+    <p class="card-text">{{this.date}}</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 {{/each}}
 
 <a href="/members/message-form" >New Message</a>
+<a href="/">Home</a>
