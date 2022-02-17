@@ -1,28 +1,28 @@
-<h1>{{title}}</h1>
+<h1 class="text-light text-center mb-3">{{title}}</h1>
 <form method="POST" action="" class="mb-4">
     <div class="form-group">
-        <label for="name">First Name: </label>
-        <input type="text" name="firstname" class="form-control">
+        <label for="name" class="text-light">First Name: </label>
+        <input type="text" name="firstname" class="form-control bg-dark border-primary">
     </div>
     <div class="form-group">
-        <label for="description">Last Name: </label>
-        <input type="text" name="lastname" class="form-control">
+        <label for="description" class="text-light">Last Name: </label>
+        <input type="text" name="lastname" class="form-control bg-dark border-primary">
     </div>
     <div class="form-group">
-        <label for="price">Username: </label>
-        <input type="text" name="username" class="form-control">
+        <label for="price" class="text-light">Username: </label>
+        <input type="text" name="username" class="form-control bg-dark border-primary">
     </div>
     <div class="form-group">
-        <label for="quantity">Password: </label>
-        <input type="text" name="password" class="form-control">
+        <label for="quantity" class="text-light">Password: </label>
+        <input type="text" name="password" class="form-control bg-dark border-primary">
     </div>
     <div class="text-center mt-3">
-        <input type="submit" value="Submit" class="btn-primary btn-block">
+        <input type="submit" value="Submit" class="btn btn-outline-primary">
     </div>
 </form>
 {{#each errors}}
    <ul>
-      <li>{{this.msg}}</li>
+      <li class="text-danger">{{this.msg}}</li>
    </ul>
 {{/each}}
 <div class="d-flex justify-content-center">

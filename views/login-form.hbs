@@ -8,12 +8,12 @@
   {{else}}
 <h1 class="text-center mb-3">Please Log In!</h1>
 <form method="POST" action="" >
-  <label for="username">Username</label>
-  <input name="username" type="text" class="form-control" />
-  <label for="password">Password</label>
-  <input name="password" type="password" class="form-control" />
+  <label for="username" class="text-light">Username</label>
+  <input name="username" type="text" class="form-control bg-dark border-primary" />
+  <label for="password" class="text-light">Password</label>
+  <input name="password" type="password" class="form-control bg-dark border-primary" />
   <div class="d-flex justify-content-center mt-3">
-    <button class="btn-primary btn-block">Log In</button>
+    <button class="btn btn-outline-primary">Log In</button>
   </div>
 </form>
 {{/if}}
