@@ -1,9 +1,9 @@
 <h1 class="text-center mb-3 text-light">{{title}}</h1>
 <form method="POST" action="" >
   <label for="title" class="text-light">Title: </label>
-  <input name="title" type="text" class="form-control bg-dark border-primary" />
+  <input name="title" type="text" class="form-control bg-dark border-primary text-light" />
   <label for="message" class="text-light">Message: </label>
-  <textarea name="message" class="form-control bg-dark border-primary" /></textarea>
+  <textarea name="message" class="form-control bg-dark border-primary text-light" /></textarea>
   <div class="d-flex justify-content-center mt-3">
     <button class="btn btn-outline-primary">Send</button>
   </div>
@@ -11,3 +11,8 @@
 <div class="d-flex justify-content-center mt-3">
   <a href="/">Home</a>
 </div>
+{{#each errors}}
+   <ul>
+      <li class="text-danger">{{this.msg}}</li>
+   </ul>
+{{/each}}

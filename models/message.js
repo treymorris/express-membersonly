@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-
 var Schema = mongoose.Schema;
+const { DateTime } = require('luxon');
 
 var MessageSchema = new Schema(
     {
@@ -11,12 +11,19 @@ var MessageSchema = new Schema(
     }
 );
 
-//Virtual for Messages URL
+// Virtual for date formatting
+MessageSchema
+    .virtual('date-formatted')
+    .get(function() {
+    return DateTime.fromJSDate(this.date).toLocaleString(DateTime.DATETIME_MED);
+    });
+
+    //Virtual for user's URL
 MessageSchema
     .virtual('url')
     .get(function () {
-        return '/members/message/' + this.id;
-    });
+    return `/members/message${this.id}`;
+});
 
 //Export model
 module.exports = mongoose.model('Message', MessageSchema);

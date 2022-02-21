@@ -1,17 +1,16 @@
-<h1 class="text-center mb-3">Hello there!</h1>
+<h1 class="text-center mb-3 mt-5 text-light">Hello there!</h1>
 {{#if user}}
-    <h1 class="text-center mb-3">Welcome back {{this.user.username}}!</h1>
-    <div class="d-flex justify-content-center mt-3">
+    <h1 class="text-center mb-3 text-light">Welcome back {{this.user.username}}!</h1>
+    <div class="d-flex justify-content-center mt-5">
       <a href="/members/logout">Log Out</a>
     </div>
-    
   {{else}}
-<h1 class="text-center mb-3">Please Log In!</h1>
+<h1 class="text-center mb-3 text-light">Please Log In!</h1>
 <form method="POST" action="" >
   <label for="username" class="text-light">Username</label>
-  <input name="username" type="text" class="form-control bg-dark border-primary" />
+  <input name="username" type="text" class="form-control bg-dark border-primary text-light" />
   <label for="password" class="text-light">Password</label>
-  <input name="password" type="password" class="form-control bg-dark border-primary" />
+  <input name="password" type="password" class="form-control bg-dark border-primary text-light" />
   <div class="d-flex justify-content-center mt-3">
     <button class="btn btn-outline-primary">Log In</button>
   </div>
@@ -20,4 +19,8 @@
 <div class="d-flex justify-content-center mt-3">
   <a href="/">Home</a>
 </div>
-
+{{#each errors}}
+   <ul>
+      <li class="text-danger">{{this.msg}}</li>
+   </ul>
+{{/each}}

@@ -1,13 +1,26 @@
-<h1 class="text-center mb-3">Please Enter Admin Passcode!</h1>
+
+{{#if user.admin}}
+    <h1 class="text-center mt-5 text-light">Welcome back, No need to enter admin code again {{this.user.username}}!</h1>
+    <div class="d-flex justify-content-center mt-5">
+      <a href="/members/message-view">Messages</a>
+    </div>
+{{else}}
+<h1 class="text-light text-center mb-3 mt-5">Please Enter Admin Password!</h1>  
 <form method="POST" action="" >
   <label for="username" class="text-light">Username</label>
-  <input name="username" type="text" class="form-control bg-dark border-primary" />
-  <label for="password" class="text-light">Passcode</label>
-  <input name="password" type="password" class="form-control bg-dark border-primary" />
+  <input name="username" type="text" class="form-control bg-dark border-primary text-light" />
+  <label for="password" class="text-light">Password</label>
+  <input name="password" type="password" class="form-control bg-dark border-primary text-light" />
   <div class="d-flex justify-content-center mt-3">
     <button class="btn btn-outline-primary">Log In</button>
   </div>
-  </form>
-  <div class="d-flex justify-content-center mt-3">
-    <a href="/">Home</a>
-  </div>
+</form>
+{{/if}}
+<div class="d-flex justify-content-center mt-3">
+  <a href="/">Home</a>
+</div>
+{{#each errors}}
+   <ul>
+      <li class="text-danger">{{this.msg}}</li>
+   </ul>
+{{/each}} 

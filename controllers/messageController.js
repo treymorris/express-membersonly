@@ -27,7 +27,7 @@ exports.message_create_post = [
     body('message', 'Enter a messsage!').trim().isLength({ min: 1 }).escape(),
 
     (req, res, next) => {
-        console.log('create message');
+        
         const errors = validationResult(req);
 
         var message = new Message(
@@ -53,3 +53,8 @@ exports.message_create_post = [
     }
 ];
 
+exports.error_list = function (err, req, res, next) {
+    res.render('error', { error: err
+        
+    })
+}

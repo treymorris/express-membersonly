@@ -1,13 +1,17 @@
-<h1 class="text-center mb-3">Welcome to the Message Board!</h1>
-<h5 class="text-center mb-3">To see messages, you must enter the secret code!</h5>
+<h1 class="text-center mb-3 text-light">Welcome to the Message Board!</h1>
+<h5 class="text-center mb-3 text-light">To see the authors of the messages, you must enter the secret code!</h5>
 <form method="POST" action="" >
   <label for="secretcode">Secret Code: </label>
-  <input name="secretcode" placeholder="hint: Spaceballs airlock code" type="password" class="form-control"/>
+  <input name="secretcode" placeholder="Hint: Spaceballs City Airlock Code" type="password" class="form-control text-light bg-dark"/>
   <div class="d-flex justify-content-center mt-3">
     <button class="btn btn-outline-primary">Verify</button>
   </div>
-  
-</form>
+  </form>
 <div class="d-flex justify-content-center mt-3">
   <a href="/">Home</a>
 </div>
+{{#each errors}}
+   <ul>
+      <li class="text-danger">{{this.msg}}</li>
+   </ul>
+{{/each}} 

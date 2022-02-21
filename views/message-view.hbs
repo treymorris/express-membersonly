@@ -1,22 +1,79 @@
-<h1 class="text-center mb-3 text-light">{{title}}</h1>
-<div class="d-flex justify-content-center">
- <a href="/members/message-form" >New Message</a>
-</div>
-<div class="d-flex justify-content-center">
+<h1 class="text-center mb-5 mt-5 text-light">{{title}}</h1>
+
+<div class="d-flex justify-content-center mb-3">
   <a href="/">Home</a>
+</div>
+
+{{#if user.admin}}
+<div class="d-flex justify-content-center mb-3">
+ <a href="/members/message-form" >New Message</a>
 </div>
 {{#each messages_list}}
 <div class="d-flex justify-content-center">
   <div class="card mt-3 text-light bg-dark border-primary" style="width: 36rem;">
     <img src="" class="card-img-top" alt="">
     <div class="card-body">
-      <h5 class="card-title">{{this.title}}</h5>
-      <p class="card-text">{{this.message}}</p>
-      <p class="card-text">{{this.user.username}}</p>
-      <p class="card-text">{{this.date}}</p>
+      <h5 class="card-title text-primary">{{this.title}}</h5>
+      <p class="card-text text-info">{{this.message}}</p>
+      <p class="card-text text-primary">{{this.user.username}}</p>
+      <p class="card-text text-muted">{{this.date-formatted}}</p>
       <a href="#" class="btn btn-outline-danger">Delete</a>
     </div>
   </div>
 </div>
 {{/each}}
-
+{{else if user.membership}}
+<div class="d-flex justify-content-center mb-3">
+ <a href="/members/message-form" >New Message</a>
+</div>
+{{#each messages_list}}
+<div class="d-flex justify-content-center">
+  <div class="card mt-3 text-light bg-dark border-primary" style="width: 36rem;">
+    <img src="" class="card-img-top" alt="">
+    <div class="card-body">
+      <h5 class="card-title text-primary">{{this.title}}</h5>
+      <p class="card-text text-info">{{this.message}}</p>
+      <p class="card-text text-primary">{{this.user.username}}</p>
+      <p class="card-text text-muted">{{this.date-formatted}}</p>
+      
+    </div>
+  </div>
+</div>
+{{/each}}
+{{else if user}}
+<div class="d-flex justify-content-center mb-3">
+ <a href="/members/message-form" >New Message</a>
+</div>
+<div class="d-flex justify-content-center mb-3">
+  <a href="/members/members-pass">Enter Member PassCode</a>
+</div>
+{{#each messages_list}}
+<div class="d-flex justify-content-center">
+  <div class="card mt-3 text-light bg-dark border-primary" style="width: 36rem;">
+    <img src="" class="card-img-top" alt="">
+    <div class="card-body">
+      <h5 class="card-title text-primary">{{this.title}}</h5>
+      <p class="card-text text-info">{{this.message}}</p>
+      
+      <p class="card-text text-muted">{{this.date-formatted}}</p>
+      
+    </div>
+  </div>
+</div>
+{{/each}}
+{{else}}
+{{#each messages_list}}
+<div class="d-flex justify-content-center">
+  <div class="card mt-3 text-light bg-dark border-primary" style="width: 36rem;">
+    <img src="" class="card-img-top" alt="">
+    <div class="card-body">
+      <h5 class="card-title text-primary">{{this.title}}</h5>
+      <p class="card-text text-info">{{this.message}}</p>
+      
+      <p class="card-text text-muted">{{this.date-formatted}}</p>
+      
+    </div>
+  </div>
+</div>
+{{/each}}
+{{/if}}
