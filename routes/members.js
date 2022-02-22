@@ -46,10 +46,10 @@ router.get('/message-form', message_controller.message_create_get);
 router.post('/message-form', message_controller.message_create_post);
 
 // // GET request to delete message.
-// router.get('/categories/:id/delete', category_controller.category_delete_get);
+router.get('/message-delete/:id', message_controller.message_delete_get);
 
 // // POST request to delete message.
-// router.post('/categories/:id/delete', category_controller.category_delete_post);
+router.post('/message-delete/:id', message_controller.message_delete_post);
 
 // // GET request for one message.
 // router.get('/categories/:id', category_controller.category_detail);

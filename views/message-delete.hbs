@@ -1,0 +1,24 @@
+<h1 class="text-center mb-3 mt-5 text-light">Message Delete!</h1>{{title}}
+<h3 class="text-center mb-3 text-light">Are you sure you would like to delete this message?</h3>
+<h3 class="text-center mb-3 text-light">This action can not be undone!</h3>
+<div class="d-flex justify-content-center">
+  <div class="card mt-3 text-light bg-dark border-primary" style="width: 36rem;">
+    <img src="" class="card-img-top" alt="">
+    <div class="card-body">
+      <h5 class="card-title text-primary">{{this.message.title}}</h5>
+      <p class="card-text text-info">{{this.message.message}}</p>
+      <p class="card-text text-primary">{{this.message.user.username}}</p>
+      <p class="card-text text-muted">{{this.message.date-formatted}}</p>
+      <p>{{this.message._id}}</p>
+    </div>
+  </div>
+</div>
+<form method="POST" action="" >
+  <input name="messageid"  type="hidden" required="true" value="messageid" />
+  <div class="d-flex justify-content-center mt-3">
+    <button type="submit" class="btn btn-outline-danger">Delete</button>
+  </div>
+</form>
+<div class="d-flex justify-content-center mb-3">
+  <a href="/">Home</a>
+</div>

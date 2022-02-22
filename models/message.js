@@ -22,7 +22,7 @@ MessageSchema
 MessageSchema
     .virtual('url')
     .get(function () {
-    return `/members/message${this.id}`;
+    return '/members/message-delete/' + this._id;
 });
 
 //Export model
