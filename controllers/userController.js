@@ -21,7 +21,7 @@ exports.index = function (req, res) {
 // Display User sign-up form on GET.
 exports.user_create_get = function(req, res, next) {
         res.render('sign-up-form', { title: 'Sign Up Form', user: req.user });
-    };
+};
 
 // Handle User sign-up form on POST
 exports.user_create_post = [
@@ -64,10 +64,12 @@ exports.user_create_post = [
                 }
         }
 ]
+
 // Display Log-In page GET
 exports.user_login_get = function (req, res, next) {
         res.render('login-form', { title: 'Log In', user: req.user });
 };
+
 // Handle Log In on POST
 exports.user_login_post = [
         // Validate and sanitize
@@ -88,10 +90,12 @@ exports.user_login_post = [
                 failureFlash: true
         }),
 ];
+
 // Display Members Sign In GET
 exports.user_member_get = function (req, res, next) {
         res.render('members-pass', { title: 'Member Pass Code' });
 };
+
 // Handle Member sign in POST
 exports.user_member_post = [
         body('secretcode', 'Enter the code!')
@@ -121,11 +125,8 @@ exports.user_member_post = [
                         });
                 
         },
-        
-        
-             
-        
-];    
+];  
+
 // Display Admin Log-In page
 exports.user_admin_login_get = function (req, res, next) {
         res.render('admin-login-form', { title: 'Admin Log In', user: req.user });
@@ -146,9 +147,9 @@ exports.user_admin_post = [
         })
         .escape(),
 
-(req, res, next) => {
-        const errors = validationResult(req);
+        (req, res, next) => {
 
+        const errors = validationResult(req);
 
         if (!errors.isEmpty()) {
                 res.render('admin-login-form', { errors: errors.array({ onlyFirstError: true }) });
@@ -159,11 +160,9 @@ exports.user_admin_post = [
                         if (err) { return next(err); }
                         res.redirect('/members/message-view')
                 });
-        
-},
-
-
+        },
 ]
+
 // Log Out Request
 exports.logout = (req, res) => {
         req.logout();

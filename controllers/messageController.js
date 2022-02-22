@@ -13,14 +13,11 @@ exports.message_list = function (req, res, next) {
         //Successful, so render
         res.render('message-view', { title: 'Messages...', messages_list: list_messages, user: req.user, date: req.date, });
       });
-    
-
 };
 
 exports.message_create_get = function (req, res, next) {
-
-    res.render('message-form', { title: 'Create New Message' });
-        };
+  res.render('message-form', { title: 'Create New Message' });
+};
 
 exports.message_create_post = [
     
@@ -59,7 +56,7 @@ exports.error_list = function (err, req, res, next) {
 }
 
 exports.message_delete_get = function (req, res, next) {
-    console.log('help')
+    
     async.parallel(
         {
           message: function (callback) {
@@ -87,14 +84,9 @@ exports.message_delete_get = function (req, res, next) {
       );
 }
         
-    
-
-
 exports.message_delete_post = function (req, res, next) {
     Message.findByIdAndRemove(req.params.id, function deleteMessage(err) {
         if (err) { return next(err); }
         res.redirect('/members/message-view');
     });
 };
-
-    
